@@ -63,7 +63,8 @@ public:
              << "Mark 2 : " << mark2 << endl
              << "Mark 3 : " << mark3 << endl
              << "Mark 4 : " << mark4 << endl
-             << "Mark 5 : " << mark5 << endl;
+             << "Mark 5 : " << mark5 << endl
+             << "Total : " << mark1 + mark2 + mark3 + mark4 + mark5;
     }
 };
 
@@ -74,6 +75,32 @@ protected:
     int mark1, mark2, mark3, mark4;
 
 public:
+    void getPGresult()
+    {
+        getStudent();
+        cout << "Enter specialization\n";
+        cin >> specialization;
+        cout << "Enter year\n";
+        cin >> year;
+        cout << "Mark 1 : " << endl;
+        cin >> mark1;
+        cout << "Mark 2 : " << endl;
+        cin >> mark2;
+        cout << "Mark 3 : " << endl;
+        cin >> mark3;
+        cout << "Mark 4 : " << endl;
+        cin >> mark4;
+    }
+
+    void putPGResult()
+    {
+        putResult();
+        cout << "Mark 1 : " << mark1 << endl
+             << "Mark 2 : " << mark2 << endl
+             << "Mark 3 : " << mark3 << endl
+             << "Mark 4 : " << mark4 << endl
+             << "Total : " << mark1 + mark2 + mark3 + mark4;
+    }
 };
 
 class College_result : public UGstudent, public PGstudent
@@ -86,11 +113,16 @@ public:
             getUGresult();
             putUGResult();
         }
+        else if (x == 0)
+        {
+            getPGresult();
+            putPGResult();
+        }
     }
 };
 int main()
 {
     College_result C1(1);
-
+    College_result C2(0);
     return 0;
 }
